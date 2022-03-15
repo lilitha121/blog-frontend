@@ -3,7 +3,7 @@ import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import About from "../views/About.vue";
-// import Products from "../views/Products.vue";
+import Blogs from "../views/Blogs.vue";
 // import Cart from "../views/Cart.vue";
 
 const routes = [
@@ -27,11 +27,11 @@ const routes = [
     name: "About",
     component: About,
   },
-  // {
-  //   path: "/products",
-  //   name: "Products",
-  //   component: Products,
-  // },
+  {
+    path: "/blogs",
+    name: "Blogs",
+    component: Blogs,
+  },
   // {
   //   path: "/cart",
   //   name: "Cart",
@@ -48,8 +48,7 @@ router.beforeEach((to, from, next) => {
   const authrequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem("user");
 
-  if (to.path == "/Products" || (to.path == "/Cart" && !loggedIn))
+  if (to.path == "/Blogs" || (to.path == "/Cart" && !loggedIn))
     next({ name: "Register" });
   else next();
 });
-export default router;
