@@ -4,7 +4,10 @@ import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import About from "../views/About.vue";
 import Blogs from "../views/Blogs.vue";
-// import Cart from "../views/Cart.vue";
+
+import Contact from "../views/Contact.vue";
+import Profile from "../views/Profile.vue";
+
 
 const routes = [
   {
@@ -32,23 +35,31 @@ const routes = [
     name: "Blogs",
     component: Blogs,
   },
-  // {
-  //   path: "/cart",
-  //   name: "Cart",
-  //   component: Cart,
-  // },
+
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
-router.beforeEach((to, from, next) => {
-  const publicPages = ["/Login", "/Register", "Home"];
-  const authrequired = !publicPages.includes(to.path);
-  const loggedIn = localStorage.getItem("user");
+// router.beforeEach((to, from, next) => {
+//   const publicPages = ["/Login", "/Register", "Home"];
+//   const authrequired = !publicPages.includes(to.path);
+//   const loggedIn = localStorage.getItem("user");
 
-  if (to.path == "/Blogs" || (to.path == "/Cart" && !loggedIn))
-    next({ name: "Register" });
-  else next();
-});
+//   if (to.path == "/Blogs" || (to.path == "/Cart" && !loggedIn))
+//     next({ name: "Register" });
+//   else next();
+// });
+
+export default router;

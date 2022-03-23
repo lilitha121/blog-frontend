@@ -1,5 +1,5 @@
 <template>
-fghjk
+
   <div class="container">
     <div class="row d-flex align-items-center justify-content-center">
       <div class="col-md-6">
@@ -61,6 +61,8 @@ fghjk
         </div>
       </div>
     </div>
+
+    
   </div>
 </template>
 
@@ -76,7 +78,6 @@ export default {
   },
   methods: {
     register() {
-      console.log(this.password);
       fetch("https://blogs-lilly.herokuapp.com/user/signup", {
         method: "POST",
         body: JSON.stringify({
@@ -90,10 +91,10 @@ export default {
         },
       })
         .then((response) => response.json())
-        .then((json) => {
-          console.log(json);
+        .then((user) => {
+          console.log(user);
           alert("User registered");
-          localStorage.setItem("jwt", json.jwt);
+          localStorage.getItem("jwt", user.jwt);
           this.$router.push({ name: "Login" });
         })
         .catch((err) => {

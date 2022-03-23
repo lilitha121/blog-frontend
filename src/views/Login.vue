@@ -4,36 +4,43 @@
       <div class="row d-flex align-items-center justify-content-center">
         <div class="col-md-6">
           <div class="card1 px-5 py-5">
-            <form  @submit.prevent="login">
-            <h3 class="mt-3">Login <br /></h3>
+            <form @submit.prevent="login">
+              <h3 class="mt-3">Login <br /></h3>
 
-            <div class="form-input">
-              <i class="fa fa-user"></i>
-            <input
-                type="text"
-                class="form-control"
-                v-model="fullname"
-                placeholder="Username"
-                required
-              />
-            </div>
+              <div class="form-input">
+                <i class="fa fa-user"></i>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="fullname"
+                  placeholder="Username"
+                  required
+                />
+              </div>
 
-            <div class="form-input">
-              <i class="fa fa-lock"></i>
-              <input type="text"
-               class="form-control" 
-               v-model="password"
-               placeholder="Password" />
-            </div>
+              <div class="form-input">
+                <i class="fa fa-lock"></i>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="password"
+                  placeholder="Password"
+                />
+              </div>
 
-            <button class="btn btn-danger mt-4 signup" type="submit">Sign in</button>
-          
-            <div class="text-center mt-5">
-              <span>Not a member?</span>
-              <router-link :to="{ name: 'Login' }" class="text-decoration-none">
-                Sign Up</router-link
-              >
-            </div>
+              <button class="btn btn-danger mt-4 signup" type="submit">
+                Sign in
+              </button>
+
+              <div class="text-center mt-5">
+                <span>Not a member?</span>
+                <router-link
+                  :to="{ name: 'Login' }"
+                  class="text-decoration-none"
+                >
+                  Sign Up</router-link
+                >
+              </div>
             </form>
           </div>
         </div>
@@ -51,20 +58,27 @@ export default {
   },
   methods: {
     login() {
-      fetch("https://movies-posbackend.herokuapp.com/user/signin", {
+      const details = {
+        fullname: this.fullname,
+        password: this.password,
+      };
+
+      fetch("https://blogs-lilly.herokuapp.com/user/signin", {
         method: "POST",
-        body: JSON.stringify({
-          email: this.email,
-          password: this.password,
-        }),
+        body: JSON.stringify(details),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
         .then((response) => response.json())
-        .then((json) => {
-          console.log(json)
-          localStorage.setItem("jwt", json.jwt);
+        .then((user) => {
+          console.log(user.fullname);
+          localStorage.setItem("jwt", user.jwt);
+          localStorage.setItem("id", user._id);
+          localStorage.setItem("fullname", user.fullname);
+          localStorage.setItem("email", user.email);
+          localStorage.setItem("phone_number", user.phone_number);
+
           alert("User logged in");
           this.$router.push({ name: "Blogs" });
         })
@@ -157,5 +171,3 @@ body {
   border-color: #0d6efd;
 }
 </style>
-
-

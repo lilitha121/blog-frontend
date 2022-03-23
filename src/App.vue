@@ -5,8 +5,8 @@
         class=" fixed-top  p-3 navbar navbar-expand-lg navbar-light bg-light" 
       >
        <div class="container-fluid">
-        <a class="navbar-brand" href="#"
-          >        <img src="./assets/download.jpg" alt="" width="45" height="44" class="d-inline-block align-text-top">
+        <a class="navbar-brand" href="#">
+          <!-- >        <img src="./assets/download.jpg" alt="" width="45 !important" height="44 !important" class="d-inline-block align-text-top"> -->
  </a>
  
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,11 @@
                         <router-link to="/About" class="nav-link d-flex">About me</router-link>
 
             <router-link to="/Blogs" class="nav-link d-flex">Blogs</router-link>
+                        <router-link to="/Blog" class="nav-link d-flex">Add Blogs</router-link>
+
                         <router-link to="/Contact" class="nav-link d-flex">Contact</router-link>
+                                                <router-link to="/Profile" class="nav-link d-flex">Profile</router-link>
+
 
           </div>
         </div>
