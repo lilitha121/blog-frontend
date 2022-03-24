@@ -18,7 +18,7 @@
     >
       add modal
     </button>
-    <Add />
+    <Add />  
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="row mb-2 bg-light" v-for="blog in blogs" :key="blog">

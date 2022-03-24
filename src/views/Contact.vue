@@ -68,13 +68,7 @@
                       required
                       v-model="message"
                     ></textarea>
-                    <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">
-              Your message has been sent. Thank you!
-            </div>
-          </div>
+              
                     <button type="submit" class="simple-btn">
                       Send Message
                     </button>
@@ -113,10 +107,11 @@ export default {
       fetch("https://blogs-lilly.herokuapp.com/contacts", {
         method: "POST",
         //   mode: 'no-cors',
-        body: JSON.stringify(),
+        body: JSON.stringify(contact),
 
         headers: {
-          "Content-type": "application/json; charset=UTF-8",
+                    "Content-type": "application/json; charset=UTF-8",
+
         },
       })
         .then((response) => response.json())

@@ -52,17 +52,21 @@
 export default {
   data() {
     return {
+      
       fullname: "",
       password: "",
     };
   },
   methods: {
     login() {
+          this.errorMessage = '';
+
+if (this.validUser()) {
       const details = {
         fullname: this.fullname,
         password: this.password,
       };
-
+}
       fetch("https://blogs-lilly.herokuapp.com/user/signin", {
         method: "POST",
         body: JSON.stringify(details),
@@ -70,7 +74,7 @@ export default {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-        .then((response) => response.json())
+        .then((response) => response.json(details))
         .then((user) => {
           console.log(user.fullname);
           localStorage.setItem("jwt", user.jwt);
@@ -79,12 +83,14 @@ export default {
           localStorage.setItem("email", user.email);
           localStorage.setItem("phone_number", user.phone_number);
 
-          alert("User logged in");
+          // alert("User logged in");
+
+          throw new Error(details.err),
           this.$router.push({ name: "Blogs" });
         })
-        .catch((err) => {
-          alert(err);
-        });
+      .catch((err) => {
+  this.errorMessage = err.message
+})
     },
   },
 };
