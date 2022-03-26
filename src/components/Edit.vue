@@ -89,6 +89,7 @@
 export default {
   data() {
     return {
+      id: null,
       title: "",
       img: "",
       price: "",
@@ -97,6 +98,8 @@ export default {
   },
   props: ["blog"],
   mounted() {
+    console.log(this.blog);
+    this.id = this.blog._id;
     this.title = this.blog.title;
     this.img = this.blog.img;
     this.price = this.blog.price;

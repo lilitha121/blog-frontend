@@ -6,7 +6,6 @@
       <h1>Our Blogs.</h1>
       <span>Blogs</span>
     </div>
-   
 
     <button
       type="button"
@@ -16,31 +15,30 @@
     >
       add modal
     </button>
-    <Add />  
-    <div class="carousel-inner  margin">
-      <div class="carousel-item active ">
+    <Add />
+    <div class="carousel-inner margin">
+      <div class="carousel-item active">
         <div class="row mb-2 bg-light" v-for="blog in blogs" :key="blog">
- 
           <div class="col-lg-6">
             <img :src="blog.img" class="d-block w-100" alt="..." />
           </div>
           <div class="col-lg-6">
-              <button
-            type="button"
-            class="button btn-danger"
-            v-on:click="removeBlog(blog._id)"
-          >
-            Delete blog
-          </button>
-               <button
-            type="button"
-            class="button btn-primary"
-             data-bs-toggle="modal"
-      data-bs-target="#editBlogModal"
-          >
-              <Edit />
-            Update blog
-          </button>
+            <button
+              type="button"
+              class="button btn-danger"
+              v-on:click="removeBlog(blog._id)"
+            >
+              Delete blog
+            </button>
+            <button
+              type="button"
+              class="button btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#editBlogModal"
+            >
+              Update blog
+            </button>
+            <Edit v-bind:blog="blog" />
             <div class="d-flex flex-column justify-content-center my-5 px-3">
               <p class="review text-center">{{ blog.title }}</p>
               <div
@@ -58,14 +56,11 @@
 
     <div class="space"></div>
   </section>
-
- 
-
 </template>
 
 <script>
-import Add from '../components/Add.vue'
-import Edit from '../components/Edit.vue'
+import Add from "../components/Add.vue";
+import Edit from "../components/Edit.vue";
 
 export default {
   components: { Add, Edit },
@@ -80,24 +75,23 @@ export default {
   },
 
   methods: {
-   
     removeBlog(id) {
       console.log(id);
       fetch("https://blogs-lilly.herokuapp.com/blogs/" + id, {
         method: "DELETE",
       })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        alert("Blog deleted successfully");
-      //   localStorage.getItem("jwt", data.jwt);
-      //   this.$router.push({ name: "Login" });
-      })
-      .catch((err) => {
-        alert(err);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          alert("Blog deleted successfully");
+          //   localStorage.getItem("jwt", data.jwt);
+          //   this.$router.push({ name: "Login" });
+        })
+        .catch((err) => {
+          alert(err);
+        });
     },
-       },
+  },
   mounted() {
     fetch("https://blogs-lilly.herokuapp.com/blogs")
       .then((res) => res.json())
@@ -121,7 +115,7 @@ export default {
 .projects {
   height: 130vh !important;
 } */
-.margin{
+.margin {
   margin: 6% 10%;
 }
 .space {
