@@ -13,7 +13,8 @@
       data-bs-toggle="modal"
       data-bs-target="#addBlogModal"
     >
-      add modal
+      add a new blog
+      
     </button>
     <Add />
     <div class="carousel-inner margin">
@@ -39,6 +40,7 @@
               Update blog
             </button>
             <Edit v-bind:blog="blog" />
+
             <div class="d-flex flex-column justify-content-center my-5 px-3">
               <p class="review text-center">{{ blog.title }}</p>
               <div
