@@ -22,7 +22,6 @@
                         <router-link to="/About" class="nav-link d-flex">About me</router-link>
 
             <router-link to="/Blogs" class="nav-link d-flex">Blogs</router-link>
-                        <router-link to="/Blog" class="nav-link d-flex">Add Blogs</router-link>
 
                         <router-link to="/Contact" class="nav-link d-flex">Contact</router-link>
                                                 <router-link to="/Profile" class="nav-link d-flex">Profile</router-link>

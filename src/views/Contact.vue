@@ -184,6 +184,6 @@ h1 {
   margin-bottom: 30px;
 }
 .space {
-  padding: 13%;
+  padding: 0%;
 }
 </style>

@@ -5,7 +5,6 @@
         <div class="eleven">
           <h1>About me</h1>
         </div>
-        <div class="space"></div>
         <div class="col-lg-6">
           <div class="about-text go-to">
             <!-- <h4>Hey guys! I do face-beats</h4> -->

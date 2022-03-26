@@ -27,7 +27,7 @@
               <input
                 type="text"
                 class="form-control"
-                v-model="blog.title"
+                v-model="title"
                 placeholder="title of blog"
                 required
               />
@@ -37,7 +37,7 @@
               <input
                 type="text"
                 class="form-control"
-                v-model="blog.price"
+                v-model="price"
                 placeholder="price of item on blog"
                 required
               />
@@ -47,7 +47,7 @@
               <input
                 type="text"
                 class="form-control"
-                v-model="blog.content"
+                v-model="content"
                 placeholder="content of blog"
                 required
               />
@@ -56,7 +56,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="blog.img"
+                  v-model="img"
                   placeholder="image link of blog"
                   required
                 />
@@ -87,10 +87,22 @@
 
 <script>
 export default {
+  data() {
+    return {
+      title: "",
+      img: "",
+      price: "",
+      content: "",
+    };
+  },
   props: ["blog"],
-    mounted(){
-        console.log("This is the blog I want to edit: ", this.blog)
-    },
+  mounted() {
+    this.title = this.blog.title;
+    this.img = this.blog.img;
+    this.price = this.blog.price;
+    this.content = this.blog.content;
+    // console.log("This is the blog I want to edit: ", this.blog);
+  },
   methods: {
     editBlog(_id) {
       console.log(_id);
@@ -100,7 +112,6 @@ export default {
           title: this.title,
           img: this.img,
           price: this.price,
-
           content: this.content,
         }),
         headers: {

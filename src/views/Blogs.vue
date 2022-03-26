@@ -1,14 +1,12 @@
 <template>
   <!-- <hr class="dashed" /> -->
-  <section>
+  <section class="space">
     <!-- <div class="row row-cols-1 row projects g-4 pt pad"> -->
     <div class="section-heading">
-      <h1>My Works.</h1>
-      <span>Portfolio</span>
+      <h1>Our Blogs.</h1>
+      <span>Blogs</span>
     </div>
-    <br />
-    <br />
-    <br />
+   
 
     <button
       type="button"
@@ -19,29 +17,30 @@
       add modal
     </button>
     <Add />  
-    <div class="carousel-inner">
-      <div class="carousel-item active">
+    <div class="carousel-inner  margin">
+      <div class="carousel-item active ">
         <div class="row mb-2 bg-light" v-for="blog in blogs" :key="blog">
-          <button
+ 
+          <div class="col-lg-6">
+            <img :src="blog.img" class="d-block w-100" alt="..." />
+          </div>
+          <div class="col-lg-6">
+              <button
+            type="button"
+            class="button btn-danger"
+            v-on:click="removeBlog(blog._id)"
+          >
+            Delete blog
+          </button>
+               <button
             type="button"
             class="button btn-primary"
              data-bs-toggle="modal"
       data-bs-target="#editBlogModal"
           >
+              <Edit />
             Update blog
           </button>
-    <Edit :blog="blog" />
-   <button
-            type="button"
-            class="button btn-primary"
-            v-on:click="removeBlog(blog._id)"
-          >
-            Delete blog
-          </button>
-          <div class="col-lg-6">
-            <img :src="blog.img" class="d-block w-100" alt="..." />
-          </div>
-          <div class="col-lg-6">
             <div class="d-flex flex-column justify-content-center my-5 px-3">
               <p class="review text-center">{{ blog.title }}</p>
               <div
@@ -117,14 +116,17 @@ export default {
 .pt {
   padding-top: 10% !important;
 }
-.space {
-  padding-bottom: 20%;
-}
+
 
 .projects {
   height: 130vh !important;
 } */
-
+.margin{
+  margin: 6% 10%;
+}
+.space {
+  padding-top: 4%;
+}
 img {
   width: 100% !important;
   height: 100% !important;
@@ -138,7 +140,7 @@ body {
 
 .container {
   max-width: 800px;
-  background-color: white;
+  /* background-color: white; */
   padding: 0;
 }
 
