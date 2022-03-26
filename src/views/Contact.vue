@@ -4,7 +4,6 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h6>Get In Touch</h6>
             <h1>Contact Me.</h1>
             <span>Contact</span>
           </div>

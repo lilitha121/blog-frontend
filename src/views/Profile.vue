@@ -6,12 +6,12 @@
         <span>Profile</span>
       </div>
       <div class="col-md-5  ">
-        <div class="row align-items-center ">
-          <div class="col-12 bg-pink p-0 px-3 py-3 mb-3 card3">
+        <div class="row align-items-center card4 ">
+          <div class="col-6 bg-pink p-0 px-3 py-3 mb-3 ">
             <div class="d-flex flex-column align-items-center">
               <img
                 class="photo"
-                src=""
+                src="https://bootdey.com/img/Content/avatar/avatar7.png"
                 alt=""
               />
               <p class="fw-bold h4 mt-3">{{ fullname }}</p>
@@ -29,7 +29,14 @@
               </div>
             </div>
           </div>
-          <div class="col-12 bg-pink p-0 px-2 pb-3 mb-3">
+        <div class="col-6">
+          <div class=" bg-pink p-0 px-2 pb-1 mb-3">
+               <div
+              class="d-flex align-items-center justify-content-between border-bottom"
+            >
+              <p class="py-2">id</p>
+              <p class="py-2 text-muted">{{ id }}</p>
+            </div>
             <div
               class="d-flex align-items-center justify-content-between border-bottom"
             >
@@ -49,9 +56,10 @@
               <p class="py-2 text-muted">{{ phone_number }}</p>
             </div>
           </div>
+          </div>
         </div>
       </div>
-    </div>
+      </div>
   </div>
 </template>
 
@@ -59,6 +67,8 @@
 export default {
   data() {
     return {
+            id: localStorage.getItem("id"),
+
       fullname: localStorage.getItem("fullname"),
       email: localStorage.getItem("email"),
       phone_number: localStorage.getItem("phone_number"),
@@ -69,7 +79,7 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .space {
-  padding: 8%;
+  padding: 15%;
 }
 * {
   padding: 0;

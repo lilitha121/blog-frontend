@@ -1,28 +1,28 @@
 <template>
-  <section class="section about-section gray-bg" id="about">
+  <section class="section about-section gray-bg space" id="about">
     <div class="container">
       <div class="row align-items-center flex-row-reverse">
-        <div class="eleven">
-          <h1>About me</h1>
-        </div>
+       <div class="section-heading">
+      <h1>About me.</h1>
+      <span>About</span>
+    </div>
         <div class="col-lg-6">
           <div class="about-text go-to">
             <!-- <h4>Hey guys! I do face-beats</h4> -->
             <p>
-              I love experimenting with makeup and I’m always looking to try
+              We love experimenting with makeup and we're always looking to try
               out new products but that can be a hit or miss. There is that
               satisfaction that comes with using products that you know just
-              work for your skin and you are guaranteed a flawless outcome – I
+              work for your skin and you are guaranteed a flawless outcome – We
               love that feeling. Some of my favourite products are fairly new
-              and some are my OG faves. If you follow me on my Instagram, you
-              will probably be able to guess some of my current favourites.
+              and some are our OG faves.
             </p>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="about-avatar">
             <img
-              src="../assets/palela.jpg"
+              src="../assets/beautyp2.jpg"
               title=""
               alt=""
               width="400"
@@ -77,7 +77,50 @@ h1 em {
   font-style: normal;
   font-weight: 600;
 }
+.section-heading {
+  margin-bottom: 80px;
+  position: relative;
+  text-align: center;
+}
+.section-heading h6 {
+  color: #47bb8e;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: 14px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
 
+h6 {
+  line-height: 1.4;
+}
+.section-heading h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-shadow: 0 8px rgb(0 0 0 / 5%);
+  text-transform: uppercase;
+}
+.section-heading span {
+  color: transparent;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 10vw;
+  font-weight: 700;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+  opacity: 0.6;
+}
+
+h1 {
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
 .eleven h1 {
   font-size: 30px;
   text-align: center;
@@ -121,15 +164,13 @@ h1 em {
 body {
   background-color: pink;
   color: #6f8ba4;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .section {
   padding: 100px 0;
   position: relative;
 }
-.gray-bg {
-  background-color: #f5f5f5;
-}
+
 img {
   max-width: 100%;
 }
@@ -210,7 +251,7 @@ img {
 
 .about-section .counter {
   padding: 22px 20px;
-  background: #ffffff;
+ 
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
 }
@@ -245,4 +286,5 @@ mark {
 .dark-color {
   color: #20247b;
 }
+
 </style>

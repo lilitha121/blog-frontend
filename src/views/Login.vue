@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="container">
+    <div class="container ">
       <div class="row d-flex align-items-center justify-content-center">
         <div class="col-md-6">
           <div class="card1 px-5 py-5">
@@ -93,6 +93,9 @@ export default {
 };
 </script>
 <style>
+.space{
+  padding: 10px
+}
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 .container {
   padding-bottom: 11%;

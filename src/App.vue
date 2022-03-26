@@ -1,6 +1,6 @@
 <template id="app">
   <section>
-    <div id="nav">
+    <div id="nav " class="background">
       <nav class="fixed-top p-3 navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
@@ -78,6 +78,7 @@
 }
 
 #nav a.router-link-exact-active {
-  color: pink;
+  /* color: pink; */
 }
+
 </style>

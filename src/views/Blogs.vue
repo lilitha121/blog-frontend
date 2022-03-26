@@ -14,7 +14,7 @@
       data-bs-target="#addBlogModal"
     >
       add a new blog
-      
+
     </button>
     <Add />
     <div class="carousel-inner margin">
@@ -48,6 +48,13 @@
               >
                 <span class="fas fa-minus pe-1"></span>
                 <p class="m-0">{{ blog.content }}</p>
+              </div>
+              <br>
+                <div
+                class="price d-flex align-items-center justify-content-center"
+              >
+                <span class="fas fa-minus pe-1"></span>
+                <p class="m-0">R{{ blog.price }}</p>
               </div>
               <a class="job text-center">READ MORE...</a>
             </div>
