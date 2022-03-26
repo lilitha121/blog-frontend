@@ -21,7 +21,7 @@
               <div class="form-input">
                 <i class="fa fa-lock"></i>
                 <input
-                  type="text"
+                  type="password"
                   class="form-control"
                   v-model="password"
                   placeholder="Password"
