@@ -1,69 +1,106 @@
 <template>
+  <section
+    class="vh-100 "
+      style="
+    "
+  >
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3 p-4 space">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card secondary" style="border-radius: 15px">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5 white">
+                  Create an account
+                </h2>
 
-  <div class="container">
-    <div class="row d-flex align-items-center justify-content-center">
-      <div class="col-md-6">
-        <div class="card2 px-5 py-5">
-          <form @submit.prevent="register">
-            <h3 class="mt-3">Register Now <br /></h3>
-            <div class="form-input">
-              <i class="fa fa-user"></i>
-              <input
-                type="text"
-                class="form-control"
-                v-model="fullname"
+                <form @submit.prevent="register">
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      class="form-control form-control-lg"
+                       v-model="fullname"
                 placeholder="Fullname"
                 required
-              />
-            </div>
-            <div class="form-input">
-              <i class="fa fa-envelope"></i>
-              <input
-                type="text"
-                class="form-control"
-                v-model="email"
-                placeholder="Email address"
+                    />
+                    <label class="form-label white" for="form3Example1cg"
+                      >Your Name</label
+                    >
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="email"
+                      id="form3Example3cg"
+                      class="form-control form-control-lg"
+                       v-model="email"
+                placeholder="Email Adress"
                 required
-              />
-            </div>
-            <div class="form-input">
-              <i class="fa fa-user"></i>
-              <input
-                type="text"
-                class="form-control"
-                v-model="phone_number"
-                placeholder="Phone number"
+                    />
+                    <label class="form-label white" for="form3Example3cg"
+                      >Your Email</label
+                    >
+                  </div>
+
+                  
+                  <div class="form-outline mb-4">
+                    <input
+                      type="phone_number"
+                      id="form3Example3cg"
+                      class="form-control form-control-lg"
+                       v-model="phone_number"
+                placeholder="Phone Number"
                 required
-              />
-            </div>
-            <div class="form-input">
-              <i class="fa fa-lock"></i>
-              <input
-                type="password"
-                class="form-control"
-                v-model="password"
+                    />
+                    <label class="form-label white" for="form3Example3cg"
+                      >Your Phone Number</label
+                    >
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="form3Example4cg"
+                      class="form-control form-control-lg"
+                         v-model="password"
                 placeholder="password"
                 required
-              />
-            </div>
+                    />
+                    <label class="form-label white" for="form3Example4cg"
+                      >Password</label
+                    >
+                  </div>
 
-            <button class="btn btn-danger mt-4 signup" type="submit">
-              Sign up
-            </button>
+                  
 
-            <div class="text-center mt-5">
-              
-              <router-link :to="{ name: 'Login' }" class="text-decoration-none">
+
+                  <div class="d-flex justify-content-center">
+                    <button
+                      type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    >
+                      Register
+                    </button>
+                  </div>
+
+                  <p class="text-center text-muted mt-5 mb-0 white">
+                    Have already an account?
+                 
+                  <router-link :to="{ name: 'Login' }" class="fw-bold text-body">
+                    <br>
+                    Login
               </router-link
               >
+                  </p>
+                </form>
+              </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
-
-    
-  </div>
+  </section>
 </template>
 
 <script>
@@ -90,174 +127,32 @@ export default {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
+      
         .then((response) => response.json())
         .then((user) => {
-          console.log(user);
-          alert("User registered");
+             if(user.message) {
+            alert(user.message)
+          }
+          else {
           localStorage.getItem("jwt", user.jwt);
+                    alert("User registered");
+
           this.$router.push({ name: "Login" });
+          }
         })
-        .catch((err) => {
-          alert(err);
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+             
     },
   },
 };
 </script>
 
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
-.container {
-  padding-bottom: 11%;
-  padding-top: 5%;
-}
+<style scoped>
 
-.height {
-  height: 100vh;
+.card{
+  background-color: grey;
 }
-
-.card2 {
-  border: 3px solid #fff !important;
-  padding-bottom: 500px;
-  /* background-color: pink; */
+.white{
   color: white;
-  min-width: 540px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  height: 40% !important;
 }
 
-.form-input {
-  position: relative;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-.form-input i {
-  position: absolute;
-  font-size: 18px;
-  top: 15px;
-  left: 10px;
-}
-
-.form-control {
-  height: 50px;
-  /* background-color: pink; */
-  text-indent: 24px;
-  font-size: 15px;
-}
-
-.form-control:focus {
-  /* background-color: #152733; */
-  box-shadow: none;
-  color: #fff;
-  border-color: #4f63e7;
-}
-
-.form-check-label {
-  margin-top: 2px;
-  font-size: 14px;
-}
-
-.signup {
-  height: 50px;
-  font-size: 14px;
-}
-
-.social {
-  height: 50px;
-  width: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #eee;
-  border-radius: 50%;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.social:hover {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-}
 </style>

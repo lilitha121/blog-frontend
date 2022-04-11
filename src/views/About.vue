@@ -1,5 +1,8 @@
 <template>
-  <section class="section about-section gray-bg space" id="about">
+  <div class="about">
+    <section class="section about-section gray-bg vh-100" id="about"
+      style="
+    " >
     <div class="container">
       <div class="row align-items-center flex-row-reverse">
        <div class="section-heading">
@@ -33,6 +36,7 @@
       </div>
     </div>
   </section>
+  </div>
 </template>
 <style>
 
@@ -162,7 +166,6 @@ h1 {
 }
 
 body {
-  background-color: pink;
   color: #6f8ba4;
   margin-top: 10px;
 }

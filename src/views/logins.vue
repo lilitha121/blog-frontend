@@ -1,105 +1,143 @@
-<template lang="">
-  <a href="https://front.codes/" class="logo" target="_blank">
-    <img src="https://assets.codepen.io/1462889/fcy.png" alt="" />
-  </a>
-  <div class="section">
-    <div class="container">
-      <div class="row full-height justify-content-center">
-        <div class="col-12 text-center align-self-center py-5">
-          <div class="section pb-5 pt-5 pt-sm-2 text-center">
-            <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
-            <input
-              class="checkbox"
-              type="checkbox"
-              id="reg-log"
-              name="reg-log"
-            />
-            <label for="reg-log"></label>
-            <div class="card-3d-wrap mx-auto">
-              <div class="card-3d-wrapper">
-                <div class="card-front">
-                  <div class="center-wrap">
-                    <div class="section text-center">
-                      <h4 class="mb-4 pb-3">Log In</h4>
-                      <div class="form-group">
-                        <input
-                          type="email"
-                          name="logemail"
-                          class="form-style"
-                          placeholder="Your Email"
-                          id="logemail"
-                          autocomplete="off"
-                        />
-                        <i class="input-icon uil uil-at"></i>
-                      </div>
-                      <div class="form-group mt-2">
-                        <input
-                          type="password"
-                          name="logpass"
-                          class="form-style"
-                          placeholder="Your Password"
-                          id="logpass"
-                          autocomplete="off"
-                        />
-                        <i class="input-icon uil uil-lock-alt"></i>
-                      </div>
-                      <a href="#" class="btn mt-4">submit</a>
-                      <p class="mb-0 mt-4 text-center">
-                        <a href="#0" class="link">Forgot your password?</a>
-                      </p>
-                    </div>
+<template>
+  <section
+    class="vh-100 bg-image"
+    style="
+      background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
+    "
+  >
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">
+                  Create an account
+                </h2>
+
+                <form @submit.prevent="register">
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      class="form-control form-control-lg"
+                       v-model="fullname"
+                placeholder="Fullname"
+                required
+                    />
+                    <label class="form-label" for="form3Example1cg"
+                      >Your Name</label
+                    >
                   </div>
-                </div>
-                <div class="card-back">
-                  <div class="center-wrap">
-                    <div class="section text-center">
-                      <h4 class="mb-4 pb-3">Sign Up</h4>
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          name="logname"
-                          class="form-style"
-                          placeholder="Your Full Name"
-                          id="logname"
-                          autocomplete="off"
-                        />
-                        <i class="input-icon uil uil-user"></i>
-                      </div>
-                      <div class="form-group mt-2">
-                        <input
-                          type="email"
-                          name="logemail"
-                          class="form-style"
-                          placeholder="Your Email"
-                          id="logemail"
-                          autocomplete="off"
-                        />
-                        <i class="input-icon uil uil-at"></i>
-                      </div>
-                      <div class="form-group mt-2">
-                        <input
-                          type="password"
-                          name="logpass"
-                          class="form-style"
-                          placeholder="Your Password"
-                          id="logpass"
-                          autocomplete="off"
-                        />
-                        <i class="input-icon uil uil-lock-alt"></i>
-                      </div>
-                      <a href="#" class="btn mt-4">submit</a>
-                    </div>
+
+                 
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="form3Example4cg"
+                      class="form-control form-control-lg"
+                         v-model="password"
+                placeholder="password"
+                required
+                    />
+                    <label class="form-label" for="form3Example4cg"
+                      >Password</label
+                    >
                   </div>
-                </div>
+
+                  <div class="d-flex justify-content-center">
+                    <button
+                      type="button"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    >
+                      Register
+                    </button>
+                  </div>
+
+                  <p class="text-center text-muted mt-5 mb-0">
+                    Have already an account?
+                 
+                  <router-link :to="{ name: 'Login' }" class="fw-bold text-body">
+              </router-link
+              >
+                  </p>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+     </div>
+  </section>
 </template>
+
+
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      
+      fullname: "",
+      password: "",
+    };
+  },
+  methods: {
+    login() {
+
+      const details = {
+        fullname: this.fullname,
+        password: this.password,
+      };
+
+      fetch("https://blogs-lilly.herokuapp.com/user/signin", {
+        method: "POST",
+        body: JSON.stringify(details),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((user) => {
+          console.log(user.fullname);
+          localStorage.setItem("jwt", user.jwt);
+          localStorage.setItem("id", user._id);
+          localStorage.setItem("fullname", user.fullname);
+          localStorage.setItem("email", user.email);
+          localStorage.setItem("phone_number", user.phone_number);
+
+          // alert("User logged in");
+
+          this.$router.push({ name: "Blogs" });
+        })
+      .catch((err) => {
+  this.errorMessage = err.message
+})
+    },
+  },
+};
 </script>
-<style lang=""></style>
+
+
+<style scoped>
+.gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #84fab0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+}
+.gradient-custom-4 {
+  /* fallback for old browsers */
+  background: #84fab0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+}
+</style>

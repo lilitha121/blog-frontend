@@ -1,15 +1,19 @@
 <template>
-  <div class="space text-center text-white font-content">
+  <section
+    class="vh-100 bg-image body "
+  
+  >
+  <div class="space text-center text-white font-content gradient-custom-3">
     <div
-      class="cover-container d-flex w-100 pt-5 mx-auto flex-column text-center"
+      class="cover-container space d-flex w-100 pt-5 mx-auto flex-column text-center"
     >
       <div class="context">
         <h1>Beauty Blogs</h1>
         <br /><br />
         <p class="lead">
           <router-link :to="{ name: 'Login' }">
-            <button id="submit" type="submit" class="btn btn-danger mb-5">
-              Watch Now
+            <button id="submit" type="submit" class="btn btn-secondary mb-5">
+              View Now
             </button>
           </router-link>
         </p>
@@ -31,19 +35,18 @@
       </div>
     </div>
   </div>
+  </section>
 </template>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+.space{
 
-* {
-  margin: 0px;
-  padding: 0px;
+  padding: 8%;
 }
 
-body {
-  font-family: "Exo", sans-serif;
-  height: 98vh;
+.body {
+      background: linear-gradient(0deg,rgba(44,62,80,.6),rgba(44,62,80,.6)),url(https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/04/makeup_composition_overhead-1296x728-header.jpg);
 }
 
 .context {
@@ -52,18 +55,19 @@ body {
   z-index: 100;
 }
 
+button{
+  padding: 0.9%;
+}
+
 .context h1 {
   text-align: center;
-  color: black;
+  color: white;
   font-size: 120px;
 }
 
-.area {
-  background: pink;
-  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
-  width: 100%;
-  /* height:100vh; */
-}
+
+
+
 
 .circles {
   position: absolute;
@@ -80,7 +84,7 @@ body {
   list-style: none;
   width: 20px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2); */
   animation: animate 25s linear infinite;
   bottom: -150px;
 }
@@ -173,4 +177,6 @@ body {
     border-radius: 50%;
   }
 }
+
+
 </style>

@@ -1,8 +1,11 @@
 <template>
   <!-- <hr class="dashed" /> -->
-  <section class="space">
-    <!-- <div class="row row-cols-1 row projects g-4 pt pad"> -->
-    <div class="section-heading">
+ <section
+    class="vh-100 bg-image"
+    style="
+    "
+  >    <!-- <div class="row row-cols-1 row projects g-4 pt pad"> -->
+    <div class="section-heading space">
       <h1>Our Blogs.</h1>
       <span>Blogs</span>
     </div>
@@ -63,7 +66,6 @@
       </div>
     </div>
 
-    <div class="space"></div>
   </section>
 </template>
 
@@ -112,7 +114,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* .pad {
   padding: 15%;
 }
@@ -128,7 +130,7 @@ export default {
   margin: 6% 10%;
 }
 .space {
-  padding-top: 4%;
+  padding: 5%
 }
 img {
   width: 100% !important;

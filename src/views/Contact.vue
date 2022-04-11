@@ -1,9 +1,9 @@
 <template>
-  <section class="contact section-padding space" id="contact">
+  <section class="contact section-padding " id="contact">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="section-heading">
+          <div class="section-heading space">
             <h1>Contact Me.</h1>
             <span>Contact</span>
           </div>
@@ -121,7 +121,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .section-heading {
   margin-bottom: 80px;
   position: relative;
@@ -145,7 +145,7 @@ h6 {
   font-size: 80px;
   font-weight: 700;
   letter-spacing: 4px;
-  text-shadow: 0 8px rgb(0 0 0 / 5%);
+  text-shadow: 0 8px rgb(grey);
   text-transform: uppercase;
 }
 .section-heading span {
@@ -183,6 +183,6 @@ h1 {
   margin-bottom: 30px;
 }
 .space {
-  padding: 0%;
+  padding:7% ;
 }
 </style>

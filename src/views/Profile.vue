@@ -1,7 +1,13 @@
 <template>
+<section
+   class="vh-100 bg-image space"
+    
+    style="
+    "
+>
   <div class="container">
-    <div class="row space">
-      <div class="section-heading">
+    <div class="row ">
+      <div class="section-heading ">
         <h1>Profile.</h1>
         <span>Profile</span>
       </div>
@@ -61,6 +67,7 @@
       </div>
       </div>
   </div>
+  </section>
 </template>
 
 <script>
@@ -76,11 +83,13 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-.space {
-  padding: 15%;
+
+.space{
+  padding: 10%;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -142,10 +151,9 @@ h1 {
   text-decoration: none;
 }
 
-.container {
-  max-width: 1000px;
-  padding: 0;
-}
+/* .container{
+  max-width: 520px !important;
+} */
 
 p {
   margin: 0;
@@ -177,7 +185,6 @@ img {
 
 body{
     margin-top:20px;  
-    background:pink
 }
 
 .thumb img {
@@ -187,7 +194,7 @@ body{
 }
 
 .post-user img {
-  border: 3px solid white;
+  border: 3px solid grey;
 }
 
 .widget {
@@ -230,7 +237,7 @@ body{
 }
 
 .post-user img {
-  border: 3px solid white;
+  border: 3px solid grey;
 }
 
 .fs-mini {
@@ -252,7 +259,7 @@ body{
 }
 
 .text-white {
-  color: #fff;
+  color: grey;
 }
 
  .widget-middle-overflow {
@@ -328,14 +335,14 @@ body{
   color: #999;
 }
 .card4 {
-  border: 3px solid #fff !important;
-  padding-bottom: 500px;
+  border: 3px solid grey !important;
+  /* padding-bottom: 500px; */
   /* background-color: #152733; */
-  color: white;
+  color: grey;
   min-width: 540px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  height: 40% !important;
+  /* height: 40% !important; */
 }
 </style>
